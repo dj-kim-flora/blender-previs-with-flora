@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blender Previs + FLORA"
+  short_description: "Reference images to 720p previs and FLORA video"
+  default_prompt: "Use $blender-previs to turn my reference images and camera direction into an editable scene and quick 720p preview, then continue through FLORA when I request the final AI video."
