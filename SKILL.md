@@ -18,6 +18,7 @@ Honor an existing workspace preference across runs; resolve its current ID from 
 - Blender MCP for inspecting and editing the open scene; background Blender for rendering. If MCP is unavailable but Blender is installed, standalone Python scene authoring is a valid fallback. Explain which route is being used.
 - Neutral white-box geometry, true openings where the camera travels, simple materials, readable depth and silhouettes.
 - **1280 × 720, 24 fps, Workbench**, studio lighting, material colors, shadows and cavity, eight AA samples, no motion blur. Use these from the first preview. Do not spend time on Cycles, textures, asset services, or GPU setup unless the task requires them.
+- **Characters are a plain cylinder (or box) by default.** Never build a limbed mannequin or rigged figure unless the user explicitly asks for one in the current request. Use one primitive per person at real height with the origin at the feet, then say so in one sentence rather than asking. See [characters.md](references/characters.md).
 - Eight seconds when the user wants a short move but leaves duration unspecified. Honor explicit duration, framing, aspect ratio, and render requirements; use 720 × 1280 for a vertical preview.
 - **One working `.blend` file with named camera variations**, reusing scene geometry. A new camera ending does not require another full scene file. Retain the previous camera/action so the user can compare.
 - Treat these as this user's defaults; more specific direction takes precedence. Do not require an approval round for every reversible modeling, framing, or rendering decision.
@@ -36,7 +37,7 @@ Check the live scene and connection before proposing installations or resets. A 
 
 Preserve unrelated existing scene content. Create or reuse clearly named project collections and a working scene. Author reusable Python with an explicit project root; do not hardcode a previous user's machine path. Make edits rerunnable by finding/updating named objects or replacing only generated objects owned by the task.
 
-Use simple meshes/primitives for the recognizable structure. Build holes as real apertures for traversal, not dark planes. Keep the required interior volume clear. Floors, roofs, beams, and props should follow the new references; the refinery's open roof and absent floors are examples, not universal defaults.
+Use simple meshes/primitives for the recognizable structure. Build holes as real apertures for traversal, not dark planes. Keep the required interior volume clear. If the shot includes a person or other character, add them as a stand-in from [characters.md](references/characters.md): a single cylinder or box sized to the character, named by role in a `Characters` collection, animated by location (and Z rotation) only. Floors, roofs, beams, and props should follow the new references; the refinery's open roof and absent floors are examples, not universal defaults.
 
 Use fresh imports and explicit definitions in every MCP execution, or execute a saved script. Helpers from a prior code call may not remain in scope. Save the working scene, then inspect a small number of informative static views at 720p. Fix obstructed routes, missing openings, or unreadable geometry before animation.
 
@@ -81,6 +82,8 @@ Read [flora-workflow.md](references/flora-workflow.md) and execute the sequence 
 3. Feed the Blender video and both generated images into **Seedance 2.5's mixed image/video mode**, set duration explicitly to the source video duration, ask the user for **resolution and bitrate mode** if not already specified, then generate within the authorized spend.
 
 The skill stores the repeatable sequence; FLORA MCP resolves the current project, node IDs, model schemas, uploads, and execution dynamically. Read the named `workflow` group and its external input dependencies before editing. Reuse intended inputs through supported update tools; otherwise add a clearly named revision branch and identify it as such. Do not run unrelated nodes or duplicate an entire canvas diagram.
+
+If the previs used character stand-ins, describe each character (age, build, clothing, hair) in the endpoint-image prompts and tell the model to replace the cylinder/box with a person of the same height, position, and facing direction. See [characters.md](references/characters.md).
 
 Show both styled endpoint images before the final video run so the user can redirect them. Combine that review with missing resolution/bitrate choices and a cost estimate. If the user has already authorized the exact settings and budget, inspect the frames and proceed without repeating the approval. General permission to use a skill is not a budget.
 

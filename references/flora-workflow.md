@@ -50,6 +50,8 @@ Prompt each edit with explicit roles, adapting nouns to the new scene:
 
 > Replace the white-box materials in the Blender frame with photorealistic surfaces, architectural details, and lighting informed by the supplied reference photographs. Preserve the Blender frame's camera position, lens perspective, framing, building silhouette, openings, and major structural layout. Use the same material palette, time of day, light direction, and grade as the companion endpoint. Keep the traversed opening and open interior consistent with the previs; add no obstruction or geometry that changes the camera route.
 
+If the Blender frames contain character stand-ins (plain cylinders or boxes), add to the prompt: replace each stand-in with a photorealistic person of the described age, build, and clothing, keeping the stand-in's height, position, and facing direction. See [characters.md](characters.md).
+
 Original photos may contain elements deliberately omitted from the scene, such as a glazed rooftop. Reference appearance must not reintroduce those elements without direction. If both endpoint generations can run independently, generate them concurrently within the authorized spend; if the last endpoint needs the accepted first result for consistency, run sequentially with that extra reference.
 
 Inspect actual image outputs using available image-capable tools, not URLs/metadata alone. Compare perspective, window placement, space, lighting, and material identity. Show both endpoint results with their source compositions. Fix a demonstrated issue within the authorized retry budget; avoid endless rerolls.

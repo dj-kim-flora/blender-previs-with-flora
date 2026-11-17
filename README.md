@@ -89,6 +89,8 @@ Your AI will:
 3. Render a short preview video (720p, 8 seconds by default).
 4. Show you the results and tell you where the files are.
 
+**People in the shot** show up as simple stand-ins: a plain cylinder (or box) at the right height, not a jointed mannequin. That is enough to show where they stand and how they move. The realistic person is added later in the optional AI step. If you do want arms and legs, say so in your request.
+
 Want a different camera move? Just say so: *"Keep the same path, but end looking left instead."* It will change only what you asked for.
 
 ---
@@ -155,6 +157,7 @@ Full skill instructions are in **[SKILL.md](SKILL.md)**. Helpers and references:
 | `SKILL.md` | Skill definition and full workflow |
 | `agents/openai.yaml` | Display name and default prompt for the agent UI |
 | `references/camera-motion.md` | Camera path, aim, and clearance techniques |
+| `references/characters.md` | Cylinder/box character stand-ins and when to use a limbed figure |
 | `references/rendering.md` | Render helper invocation and failure handling |
 | `references/flora-workflow.md` | Previs-to-video steps on the FLORA canvas |
 | `scripts/render_preview.py` | Runs inside background Blender: storyboard frames or full MP4 |
